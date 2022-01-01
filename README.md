@@ -1,3 +1,10 @@
+## 실행 명령어
+- bundle exec jekyll s
+
+## 참고
+- post 이름은 날짜를 제외하고 숫자를 입력하면 안됨.
+
+
 <div align="right">
 
   EN / [中文](https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/README.zh-CN.md)

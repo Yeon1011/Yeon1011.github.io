@@ -5,7 +5,7 @@ author:
   link: https://github.com/cotes2020
 date: 2021-12-27 17:00:00 +0900
 categories: [BigData, Hadoop]
-tags: [typography]
+tags: [Hadoop]
 math: true
 mermaid: true
 #image:
@@ -38,7 +38,7 @@ mermaid: true
 ## 설치
 
 ### 설치 위치
-/root/dev
+/home/yeon/dev
 
 ### Hadoop 3.3.1 다운로드 및 압축해제
 ```console
@@ -66,7 +66,7 @@ export JAVA_HOME=/usr/lib/jvm/jre-1.8.0/
 # Dev Home
 export DEV_HOME=/root/dev
 
-# Hadoop Setting 
+# Hadoop Setting
 export HADOOP_HOME=$DEV_HOME/hadoop
 export HADOOP_INSTALL=$HADOOP_HOME
 export HADOOP_MAPRED_HOME=$HADOOP_HOME
