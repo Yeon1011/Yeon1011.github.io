@@ -30,7 +30,7 @@ mermaid: true
 ---
 ## 선행 작업
 
-- VirtualBox 설치
+- VirtualBox 설치11
 - VirtualBox에 CentOS 설치
 - CentOS에 java설치
 
