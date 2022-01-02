@@ -2,7 +2,7 @@
 - bundle exec jekyll s
 
 ## 참고
-- post 이름은 날짜를 제외하고 숫자를 입력하면 안됨.
+- post 이름은 날짜를 제외하고 숫자를 입력하면 안됨.1
 
 
 <div align="right">
