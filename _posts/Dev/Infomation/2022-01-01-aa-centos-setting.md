@@ -1,5 +1,5 @@
 ---
-title: CentOS7 작업
+title: CentOS7 작업 내용
 author:
   name: Yeoni
   link: https://github.com/cotes2020

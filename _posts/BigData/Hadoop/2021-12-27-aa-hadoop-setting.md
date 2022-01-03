@@ -1,5 +1,5 @@
 ---
-title: Hadoop 설치
+title: "[Hadoop-1] Hadoop 설치"
 author:
   name: Yeoni
   link: https://github.com/cotes2020
@@ -286,7 +286,7 @@ http://192.168.25.2:9870/
 - 참고로 하둡 실행 후, Summary 하위 safemode가 on으로 설정된다. 정상적으로 다 켜질 때까지 기다린 다음 safemode가 off로 전환 된 후에 hive를 구동해야 한다.
 
 ---
-### Hadoop Yarn Cluster 모니터링 페이지
+### Hadoop Yarn Resource Manager 모니터링 페이지
 http://192.168.25.2:8088/
 ![Desktop View](/assets/img/contents/BigData/Hadoop/hadoop-setting/yarn-clustering1.png)
 
