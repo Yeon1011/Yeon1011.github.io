@@ -8,14 +8,10 @@ categories: [BigData, Hadoop]
 tags: [Hadoop, MapReduce]
 math: true
 mermaid: true
-#image:
-#  src: /assets/img/contents/BigData/Hadoop/hadoop-setting/test.png
-#  width: 800
-#  height: 500
 ---
 
 
-# Hadoop 설치
+# Hadoop MapReduce 테스트
 
 ---
 ## 환경 구성

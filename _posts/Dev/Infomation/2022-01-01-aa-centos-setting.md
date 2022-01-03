@@ -8,10 +8,6 @@ categories: [Dev, Infomation]
 tags: [CentOS7]
 math: true
 mermaid: true
-#image:
-#  src: /assets/img/contents/BigData/Hadoop/hadoop-setting/test.png
-#  width: 800
-#  height: 500
 ---
 
 

@@ -8,10 +8,6 @@ categories: [BigData, Hadoop]
 tags: [Hadoop]
 math: true
 mermaid: true
-#image:
-#  src: /assets/img/contents/BigData/Hadoop/hadoop-setting/test.png
-#  width: 800
-#  height: 500
 ---
 
 
@@ -101,6 +97,11 @@ export HADOOP_YARN_HOME=$HADOOP_HOME
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+```
+
+```console
+# bash 파일 변경정보 적용
+[yeon@yeon-host dev]$ source ~/.bashrc
 ```
 
 ---
