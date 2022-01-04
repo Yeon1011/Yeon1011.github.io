@@ -74,6 +74,9 @@ export PATH="$HOME/.local/bin:$HOME/bin:$PATH:$JAVA_HOME/bin:$HADOOP_HOME/bin:$H
 ```
 
 ### warehouse 생성
+
+따로 설정하지 않으면 기본 경로가 `/user/hive/warehouse` 이다.
+
 ```console
 hdfs dfs -mkdir /tmp
 hdfs dfs -mkdir -p /user/hive/warehouse
@@ -82,6 +85,16 @@ hdfs dfs -chmod g+w /tmp
 hdfs dfs -chmod -R g+w /user
 # hdfs dfs -chmod -R 777 / # 이건 따로 안줌. (gram에는 주고 samsung에는 안함)
 ```
+
+참고로 해당 warehouse의 위치를 변경하려면 $HIVE_HOME/conf/hive-site.xml의 아래 속성을 변경하면 됨
+```html
+<property>
+  <name>hive.metastore.warehouse.dir</name>
+  <value>/user/hive/warehouse</value>
+  <description>location of default database for the warehouse</description>
+</property>
+```
+
 ---
 
 ### warehouse 확인

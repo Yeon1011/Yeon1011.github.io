@@ -154,6 +154,58 @@ Time taken: 28.575 seconds, Fetched: 4 row(s)
 ![Desktop View](/assets/img/contents/BigData/Hive/hive-test/yarn1.png)
 _Yarn Resource Manager에서 실행 항목 조회_
 
+### hive로 저장한 데이터 hdfs에서 확인
+
+- 현재 옵션으로, hive 에서 만든 테이블 정보는 `/user/hive/warehouse`에 저장된다.
+
+```console
+# 위 경로 하위에 위에서 만든 테이블명 (person)으로 폴더가 생성됨
+[yeon@yeon-host conf]$ hdfs dfs -ls /user/hive/warehouse
+Found 1 items
+drwxr-xr-x   - yeon supergroup          0 2022-01-04 00:09 /user/hive/warehouse/person
+
+# ~/person 하위에 위에서 insert한 5개의 파일이 확인
+[yeon@yeon-host conf]$ hdfs dfs -ls /user/hive/warehouse/person
+Found 5 items
+-rw-r--r--   1 yeon supergroup         16 2022-01-04 00:07 /user/hive/warehouse/person/000000_0
+-rw-r--r--   1 yeon supergroup         16 2022-01-04 00:07 /user/hive/warehouse/person/000000_0_copy_1
+-rw-r--r--   1 yeon supergroup         16 2022-01-04 00:08 /user/hive/warehouse/person/000000_0_copy_2
+-rw-r--r--   1 yeon supergroup         16 2022-01-04 00:08 /user/hive/warehouse/person/000000_0_copy_3
+-rw-r--r--   1 yeon supergroup         15 2022-01-04 00:09 /user/hive/warehouse/person/000000_0_copy_4
+
+# ~/person 하위에 위에서 insert한 5 record가 csv 형식으로 넣어져있음을 확인.
+[yeon@yeon-host conf]$ hdfs dfs -cat /user/hive/warehouse/person/*
+20200101,KIM,33
+20200102,BAE,22
+20200103,KIM,35
+20200104,LEE,16
+20200105,SO,25
+
+# ~/person 하위 파일 한개 확인
+[yeon@yeon-host conf]$ hdfs dfs -cat /user/hive/warehouse/person/000000_0_copy_2
+20200103,KIM,35
+```
+---
+
+### hive로 hdfs 저장 위치 조회
+
+- hive 에 아래 명령을 내려 hive storage 위치를 찾을수 있다.
+- `hive -S -e "DESCRIBE FORMATTED person;" | grep 'Location' | awk '{ print $NF }'`
+
+
+```console
+[yeon@yeon-host derby]$ hive -S -e "DESCRIBE FORMATTED person;" | grep 'Location' | awk '{ print $NF }'
+which: no hbase in (/home/yeon/.local/bin:/home/yeon/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.312.b07-1.el7_9.x86_64/bin:/home/yeon/dev/hadoop/sbin:/home/yeon/dev/hadoop/bin:/usr/lib/jvm/jre-1.8.0//bin:/home/yeon/dev/hadoop/bin:/home/yeon/dev/hadoop/sbin:/home/yeon/dev/hive/bin:/home/yeon/.local/bin:/home/yeon/bin)
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/yeon/lib/apache-hive-3.1.2-bin/lib/log4j-slf4j-impl-2.10.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/yeon/lib/hadoop-3.3.1/share/hadoop/common/lib/slf4j-log4j12-1.7.30.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.apache.logging.slf4j.Log4jLoggerFactory]
+Hive Session ID = 9bafda92-c022-4341-8480-f999a314222a
+Hive Session ID = 737bb5c7-d387-4d03-8199-596f40c6424b
+hdfs://yeon-host:9000/user/hive/warehouse/person # 저장위치 확인
+```
+
 ### derby 사용 + hiveserver2 구동
 
 아래와 같이 hive로 process는 띄워져있으나 hive port (default:10000)은 띄워져 있지 않음..
